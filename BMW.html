@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMW M8 - The Ultimate Driving Machine</title>
+    <!-- Tailwind CSS CDN for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font for a sleek look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d0d0d;
+        }
+        /* All page sections are hidden by default */
+        .page-section {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out; /* Add a smooth transition for the fade effect */
+        }
+        /* Show the active page and fade it in */
+        .page-section.active {
+            display: block;
+            opacity: 1;
+        }
+        /* Keep the navigation link active state styling */
+        .nav-link.active {
+            color: #fff;
+            border-bottom: 2px solid #fff;
+        }
+        .nav-link:hover {
+            color: #fff;
+        }
+        /* Style for the image fallback if URLs fail */
+        img.fallback-img {
+            background-color: #333;
+        }
+        /* Modal styling */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.75);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+        .modal-content {
+            background-color: #1a1a1a;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            max-width: 90%;
+            max-height: 90%;
+            overflow-y: auto;
+        }
+        /* Loading spinner */
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid #fff;
+            width: 32px;
+            height: 32px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="text-gray-300">
+
+    <!-- HTML: The header contains the website's main navigation -->
+    <header class="bg-black text-white p-4 sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">BMW M8</h1>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#home" class="nav-link text-gray-400 active">Home</a></li>
+                    <li><a href="#design" class="nav-link text-gray-400">Design</a></li>
+                    <li><a href="#performance" class="nav-link text-gray-400">Performance</a></li>
+                    <li><a href="#interior" class="nav-link text-gray-400">Interior</a></li>
+                    <li><a href="#technology" class="nav-link text-gray-400">Technology</a></li>
+                    <li><a href="#specs" class="nav-link text-gray-400">Specifications</a></li>
+                    <li><a href="#gallery" class="nav-link text-gray-400">Gallery</a></li>
+                    <li><a href="#contact" class="nav-link text-gray-400">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HTML: The main content area of the website -->
+    <main class="container mx-auto mt-8 p-4">
+
+        <!-- HTML: The Home Page Section -->
+        <section id="home" class="page-section active">
+            <div class="relative bg-cover bg-center h-screen rounded-xl overflow-hidden" 
+            style="background-image: url('https://i.supaimg.com/0dba5fa6-c8cb-4aa4-b7a2-e6b7504f7d67.jpg');">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center text-center p-4">
+                    <div class="text-white">
+                        <h2 class="text-6xl font-bold mb-4">The New BMW M8</h2>
+                        <p class="text-xl max-w-2xl mx-auto mb-8">Unleash the spirit of the race track with the luxury of a grand tourer. The BMW M8 is the perfect fusion of dynamic performance and exclusive style.</p>
+                        <a href="#design" class="bg-white text-black px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:bg-gray-200">Explore the M8</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HTML: The Design Page Section -->
+        <section id="design" class="page-section">
+            <div class="bg-gray-900 rounded-xl p-8 shadow-xl">
+                <h2 class="text-4xl font-bold mb-6 text-center">Design: An Expression of Power</h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center mb-12">
+                    <!-- High-quality image of the car's aerodynamic profile -->
+                    <img src="https://i.supaimg.com/9c2966b2-cfae-400b-b216-afea06fcf3fd.jpg" alt="BMW M8 Side Profile" class="rounded-lg shadow-lg w-full">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-2">Aerodynamic Profile</h3>
+                        <p class="text-gray-400">Every line and curve of the BMW M8 is sculpted for performance. The long, sweeping hood, the aggressive front apron, and the subtle spoiler all work in harmony to reduce drag and enhance downforce, ensuring exceptional stability at high speeds.</p>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center mb-12">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-2">Iconic Grille and Lights</h3>
+                        <p class="text-gray-400">The signature kidney grille with its double-bar design and the sleek, powerful laser headlights give the M8 an unmistakable and commanding presence. These elements are not just for show; they optimize airflow for superior engine cooling.</p>
+                    </div>
+                    <!-- High-quality image of the front grille and headlights -->
+                    <img src="https://i.supaimg.com/23c636e4-1748-4df5-b81f-33e3648739c0.jpg" alt="BMW M8 Kidney Grille and Lights" class="rounded-lg shadow-lg w-full">
+                </div>
+            </div>
+        </section>
+
+        <!-- HTML: The Performance Page Section -->
+        <section id="performance" class="page-section">
+            <div class="bg-gray-900 rounded-xl p-8 shadow-xl">
+                <h2 class="text-4xl font-bold mb-6 text-center">Performance: Power Unleashed</h2>
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <!-- High-quality image of the M8 engine bay -->
+                    <img src="https://i.supaimg.com/2a9be4bc-f480-4cb6-9199-b134c579bdab.jpg" alt="BMW M8 Engine" class="rounded-lg shadow-lg w-full">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-2">TwinPower Turbo V8 Engine</h3>
+                        <p class="text-gray-400">At the core of the M8 is a 4.4-liter TwinPower Turbo V8 engine that delivers breathtaking power and a thrilling soundtrack. This engine is a masterpiece of engineering, offering incredible responsiveness and a high-revving character.</p>
+                        <ul class="list-disc list-inside mt-4 text-gray-400">
+                            <li>Horsepower: 617 hp</li>
+                            <li>Torque: 553 lb-ft</li>
+                            <li>0-60 mph: 3.0 seconds</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- HTML: Table of key performance specifications -->
+                <div class="bg-gray-800 rounded-lg p-6">
+                    <h3 class="text-2xl font-semibold mb-4 text-center">Key Performance Specs</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full text-left">
+                            <thead>
+                                <tr class="border-b-2 border-gray-700">
+                                    <th class="p-3">Feature</th>
+                                    <th class="p-3">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-700">
+                                    <td class="p-3">Drivetrain</td>
+                                    <td class="p-3">M xDrive All-Wheel-Drive with 2WD mode</td>
+                                </tr>
+                                <tr class="border-b border-gray-700">
+                                    <td class="p-3">Transmission</td>
+                                    <td class="p-3">8-speed M Steptronic with Drivelogic</td>
+                                </tr>
+                                <tr class="border-b border-gray-700">
+                                    <td class="p-3">Suspension</td>
+                                    <td class="p-3">Adaptive M Suspension</td>
+                                </tr>
+                                <tr class="border-b border-gray-700">
+                                    <td class="p-3">Brakes</td>
+                                    <td class="p-3">M Compound Brakes (Carbon Ceramic optional)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interior Page -->
+        <section id="interior" class="page-section">
+            <div class="bg-gray-900 rounded-xl p-8 shadow-xl">
+                <h2 class="text-4xl font-bold mb-6 text-center">Interior: Crafted for the Driver</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-gray-800 rounded-lg p-4 shadow-md">
+                        <!-- High-quality image of the M Sport seats -->
+                        <img src="https://i.supaimg.com/fd0f62a0-6418-4ab7-bfc2-7c06595b7edf.jpg" alt="M Sport Seats" class="rounded-lg w-full mb-4">
+                        <h3 class="text-xl font-semibold mb-2">M Sport Seats</h3>
+                        <p class="text-gray-400">Ergonomically designed M Sport seats with integrated headrests and illuminated M8 logos provide exceptional lateral support and long-distance comfort.</p>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg p-4 shadow-md">
+                        <!-- High-quality image of the M8 cockpit -->
+                        <img src="https://i.supaimg.com/6d20ddf4-5958-4b61-93c8-66b8899b5d30.jpg" alt="Driver's Cockpit" class="rounded-lg w-full mb-4">
+                        <h3 class="text-xl font-semibold mb-2">Driver-Focused Cockpit</h3>
+                        <p class="text-gray-400">The entire cabin is oriented towards the driver, with a perfectly positioned M steering wheel, digital instrument cluster, and head-up display that keeps all vital information in your line of sight.</p>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg p-4 shadow-md">
+                        <!-- High-quality image of the premium interior materials -->
+                        <img src="https://i.supaimg.com/a2d0299c-f74a-4fd0-8790-daf5351031ec.jpg" alt="Premium Interior Materials" class="rounded-lg w-full mb-4">
+                        <h3 class="text-xl font-semibold mb-2">Premium Materials</h3>
+                        <p class="text-gray-400">The M8's interior is adorned with the finest materials, from sumptuous Merino leather upholstery to carbon fiber trim, creating an atmosphere of pure, unadulterated luxury.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HTML: The Technology Page Section -->
+        <section id="technology" class="page-section">
+            <div class="bg-gray-900 rounded-xl p-8 shadow-xl">
+                <h2 class="text-4xl font-bold mb-6 text-center">Technology: Innovation at Your Fingertips</h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center mb-12">
+                    <!-- High-quality image of the infotainment system -->
+                    <img src="https://i.supaimg.com/db12bbb5-3ed7-4772-9cc0-760a3f856444.jpg" alt="Infotainment System" class="rounded-lg shadow-lg w-full">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-2">BMW iDrive System</h3>
+                        <p class="text-gray-400">The M8 features the latest BMW iDrive system with a large, high-resolution touchscreen display, intuitive controls, and advanced voice recognition. Seamlessly integrate your digital life with Apple CarPlay and Android Auto.</p>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center mb-12">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-2">Driver Assistance Systems</h3>
+                        <p class="text-gray-400">Equipped with a suite of cutting-edge safety and driver-assistance features, the M8 offers peace of mind on every journey. This includes adaptive cruise control, lane-keeping assist, and a surround-view camera system.</p>
+                    </div>
+                    <!-- High-quality image of the driver assistance features -->
+                    <img src="https://i.supaimg.com/3ab9cae4-ed3f-4f0d-9c19-aa8c2a99f0a1.jpg" alt="Driver Assistance Features" class="rounded-lg shadow-lg w-full">
+                </div>
+            </div>
+        </section>
+
+        <!-- HTML: The Specifications Page Section -->
+        <section id="specs" class="page-section">
+            <div class="bg-gray-900 rounded-xl p-8 shadow-xl">
+                <h2 class="text-4xl font-bold mb-6 text-center">Detailed Specifications</h2>
+                <div class="overflow-x-auto">
+                    <!-- HTML: Table of specifications -->
+                    <table class="min-w-full text-left bg-gray-800 rounded-lg shadow-md">
+                        <thead>
+                            <tr class="bg-gray-700">
+                                <th class="p-4 rounded-tl-lg">Category</th>
+                                <th class="p-4">Specification</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-700">
+                                <td class="p-4 font-semibold">Engine</td>
+                                <td class="p-4">4.4L TwinPower Turbo V8</td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="p-4 font-semibold">Horsepower</td>
+                                <td class="p-4">617 hp @ 6,000 rpm</td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="p-4 font-semibold">Torque</td>
+                                <td class="p-4">553 lb-ft @ 1,800-5,860 rpm</td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="p-4 font-semibold">0-60 mph</td>
+                                <td class="p-4">3.0 seconds</td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="p-4 font-semibold">Transmission</td>
+                                <td class="p-4">8-speed M Steptronic Automatic</td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="p-4 font-semibold">Drivetrain</td>
+                                <td class="p-4">M xDrive All-Wheel-Drive</td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="p-4 font-semibold">Length</td>
+                                <td class="p-4">191.7 inches</td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="p-4 font-semibold">Width</td>
+                                <td class="p-4">75.1 inches</td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="p-4 font-semibold">Height</td>
+                                <td class="p-4">53.6 inches</td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="p-4 font-semibold">Curb Weight</td>
+                                <td class="p-4">4,251 lbs</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- HTML: Button to open the Gemini AI feature -->
+                <div class="mt-8 text-center">
+                    <button id="askGeminiBtn" class="bg-gray-700 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:bg-gray-600">
+                        ✨ Ask Gemini about the M8
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- HTML: The Gallery Page Section -->
+        <section id="gallery" class="page-section">
+            <div class="bg-gray-900 rounded-xl p-8 shadow-xl">
+                <h2 class="text-4xl font-bold mb-6 text-center">Gallery</h2>
+                <!-- HTML: Button to open the AI image generation feature -->
+                <div class="flex flex-col items-center mb-8">
+                    <button id="generateImageBtn" class="bg-gray-700 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:bg-gray-600">
+                        ✨ Generate a Custom M8 Scene
+                    </button>
+                    <p class="text-gray-400 mt-2 text-center text-sm">Create a unique image of the BMW M8 using AI.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- HTML: Gallery Images -->
+                    <img src="https://i.supaimg.com/92fcd569-16e1-410d-85be-cb0aa87144f0.jpg" alt="BMW M8 front view" class="rounded-lg shadow-md w-full h-auto">
+                    <img src="https://i.supaimg.com/285a263f-9eab-4164-983c-b5c558165b9c.jpg" alt="BMW M8 rear view" class="rounded-lg shadow-md w-full h-auto">
+                    <img src="https://i.supaimg.com/a1d99192-fb70-4ec5-95b8-301f6b63f370.jpg" alt="BMW M8 interior" class="rounded-lg shadow-md w-full h-auto">
+                    <img src="https://i.supaimg.com/88c94650-eaa1-4e26-b2b4-f2e64429ca88.jpg" alt="BMW M8 side profile" class="rounded-lg shadow-md w-full h-auto">
+                    <img src="https://i.supaimg.com/2a9be4bc-f480-4cb6-9199-b134c579bdab.jpg" alt="BMW M8 engine" class="rounded-lg shadow-md w-full h-auto">
+                    <img src="https://i.supaimg.com/e805e12e-2e7a-490f-97a3-80efd1f9d64e.jpg" alt="BMW M8 on the road" class="rounded-lg shadow-md w-full h-auto">
+                    <img src="https://i.supaimg.com/0dba5fa6-c8cb-4aa4-b7a2-e6b7504f7d67.jpg" alt="BMW M8 in the city" class="rounded-lg shadow-md w-full h-auto">
+                    <img src="https://i.supaimg.com/b9ac2a95-a327-4dea-8869-0b97a6c654e5.jpg" alt="BMW M8 detail shot" class="rounded-lg shadow-md w-full h-auto">
+                </div>
+                <!-- HTML: Container for the AI-generated image -->
+                <div id="generatedImageContainer" class="mt-8"></div>
+            </div>
+        </section>
+
+        <!-- HTML: The Contact Page Section -->
+        <section id="contact" class="page-section">
+            <div class="bg-gray-900 rounded-xl p-8 shadow-xl">
+                <h2 class="text-4xl font-bold mb-6 text-center">Contact Us</h2>
+                <p class="text-center text-gray-400 mb-8">Ready to experience the BMW M8? Fill out the form below to connect with a specialist.</p>
+                <!-- HTML: Contact form -->
+                <form class="max-w-xl mx-auto">
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-400 mb-2">Name</label>
+                        <input type="text" id="name" class="w-full p-3 rounded-md bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-white">
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-400 mb-2">Email</label>
+                        <input type="email" id="email" class="w-full p-3 rounded-md bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-white">
+                    </div>
+                    <div class="mb-4">
+                        <label for="message" class="block text-gray-400 mb-2">Message</label>
+                        <textarea id="message" rows="4" class="w-full p-3 rounded-md bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-white"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-white text-black py-3 rounded-md font-semibold transition-all duration-300 hover:bg-gray-200">Submit</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- HTML: The footer section -->
+    <footer class="bg-black text-center p-4 mt-8">
+        <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center text-sm text-gray-500">
+            <p>&copy; 2025 BMW M8 Website. All rights reserved. This is a fictional demonstration website.</p>
+            <p class="mt-2 sm:mt-0">Website by Prattyush Awasthi IOT</p>
+        </div>
+    </footer>
+
+    <!-- HTML: Modals for the Gemini AI features -->
+    <div id="askGeminiModal" class="modal-overlay hidden">
+        <div class="modal-content w-full md:w-3/4 lg:w-1/2">
+            <h3 class="text-xl font-bold mb-4">Ask Gemini about the BMW M8</h3>
+            <div class="mb-4">
+                <input type="text" id="geminiQuestion" class="w-full p-3 rounded-md bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-white" placeholder="e.g., How does the M xDrive system work?">
+            </div>
+            <div id="geminiAnswer" class="mt-4 p-4 rounded-md bg-gray-800 text-gray-300 min-h-[100px] flex items-center justify-center">
+                <span class="text-gray-500">Your answer will appear here.</span>
+            </div>
+            <div class="flex justify-between items-center mt-4">
+                <button id="submitGeminiQuestion" class="bg-white text-black px-4 py-2 rounded-full font-semibold transition-all duration-300 hover:bg-gray-200">
+                    Submit
+                </button>
+                <button id="closeGeminiModal" class="text-gray-400 hover:text-white">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="generateImageModal" class="modal-overlay hidden">
+        <div class="modal-content w-full md:w-3/4 lg:w-1/2">
+            <h3 class="text-xl font-bold mb-4">Generate a Custom M8 Scene</h3>
+            <div class="mb-4">
+                <input type="text" id="imagePrompt" class="w-full p-3 rounded-md bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-white" placeholder="e.g., A BMW M8 on a winding road at sunset">
+            </div>
+            <div id="generatedImageResult" class="mt-4 p-4 rounded-md bg-gray-800 text-gray-300 min-h-[300px] flex items-center justify-center">
+                <span class="text-gray-500">Your image will appear here.</span>
+            </div>
+            <div class="flex justify-between items-center mt-4">
+                <button id="submitImagePrompt" class="bg-white text-black px-4 py-2 rounded-full font-semibold transition-all duration-300 hover:bg-gray-200">
+                    Generate
+                </button>
+                <button id="closeImageModal" class="text-gray-400 hover:text-white">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript: This is the interactive part of the website. It handles page switching, API calls, and modals. -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pageSections = document.querySelectorAll('.page-section');
+            const askGeminiBtn = document.getElementById('askGeminiBtn');
+            const askGeminiModal = document.getElementById('askGeminiModal');
+            const closeGeminiModal = document.getElementById('closeGeminiModal');
+            const submitGeminiQuestion = document.getElementById('submitGeminiQuestion');
+            const geminiQuestionInput = document.getElementById('geminiQuestion');
+            const geminiAnswerDiv = document.getElementById('geminiAnswer');
+
+            const generateImageBtn = document.getElementById('generateImageBtn');
+            const generateImageModal = document.getElementById('generateImageModal');
+            const closeImageModal = document.getElementById('closeImageModal');
+            const submitImagePrompt = document.getElementById('submitImagePrompt');
+            const imagePromptInput = document.getElementById('imagePrompt');
+            const generatedImageResultDiv = document.getElementById('generatedImageResult');
+            const generatedImageContainer = document.getElementById('generatedImageContainer');
+
+
+            const showPage = (pageId) => {
+                const currentPage = document.querySelector('.page-section.active');
+                const nextPage = document.querySelector(pageId);
+
+                if (currentPage) {
+                    // Fade out the current page
+                    currentPage.style.opacity = '0';
+                    setTimeout(() => {
+                        currentPage.classList.remove('active');
+                        // After fading out, show and fade in the next page
+                        if (nextPage) {
+                            nextPage.classList.add('active');
+                            nextPage.style.opacity = '1';
+                        }
+                    }, 500); // Wait for the transition to finish
+                } else if (nextPage) {
+                    // If no current page, just show the first one
+                    nextPage.classList.add('active');
+                    nextPage.style.opacity = '1';
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                });
+                document.querySelector(`a[href='${pageId}']`).classList.add('active');
+            };
+
+            const toggleModal = (modal, show) => {
+                modal.classList.toggle('hidden', !show);
+            };
+
+            // Event Listeners for Page Navigation
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const pageId = e.target.getAttribute('href');
+                    history.pushState(null, '', pageId);
+                    showPage(pageId);
+                });
+            });
+
+            window.addEventListener('popstate', () => {
+                const currentPage = window.location.hash || '#home';
+                showPage(currentPage);
+            });
+
+            showPage(window.location.hash || '#home');
+
+            // --- Gemini API Text Generation Feature ---
+            askGeminiBtn.addEventListener('click', () => {
+                toggleModal(askGeminiModal, true);
+            });
+
+            closeGeminiModal.addEventListener('click', () => {
+                toggleModal(askGeminiModal, false);
+            });
+            
+            submitGeminiQuestion.addEventListener('click', async () => {
+                const prompt = geminiQuestionInput.value.trim();
+                if (!prompt) return;
+
+                geminiAnswerDiv.innerHTML = '<div class="spinner"></div>';
+
+                let retryCount = 0;
+                const maxRetries = 3;
+                const baseDelay = 1000; // 1 second
+
+                while (retryCount < maxRetries) {
+                    try {
+                        let chatHistory = [];
+                        chatHistory.push({ role: "user", parts: [{ text: `Provide a concise, detailed, and accurate answer about the BMW M8 car based on the following question: ${prompt}` }] });
+
+                        const payload = { contents: chatHistory };
+                        const apiKey = "";
+                        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+                        const response = await fetch(apiUrl, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+
+                        if (!response.ok) {
+                            if (response.status === 429) {
+                                const delay = baseDelay * (2 ** retryCount) + Math.random() * 1000;
+                                console.warn(`API rate limit exceeded. Retrying in ${delay / 1000} seconds...`);
+                                await new Promise(res => setTimeout(res, delay));
+                                retryCount++;
+                                continue;
+                             } else {
+                                throw new Error(`API call failed with status: ${response.status}`);
+                            }
+                        }
+
+                        const result = await response.json();
+
+                        if (result.candidates && result.candidates.length > 0 &&
+                            result.candidates[0].content && result.candidates[0].content.parts &&
+                            result.candidates[0].content.parts.length > 0) {
+                            const text = result.candidates[0].content.parts[0].text;
+                            geminiAnswerDiv.innerHTML = `<p>${text}</p>`;
+                        } else {
+                            geminiAnswerDiv.innerHTML = `<p class="text-red-400">Sorry, I couldn't generate an answer for that. Please try again.</p>`;
+                        }
+                        return; // Exit the loop on success
+                    } catch (error) {
+                        console.error('Error calling Gemini API:', error);
+                        geminiAnswerDiv.innerHTML = `<p class="text-red-400">An error occurred. Please try again.</p>`;
+                        return;
+                    }
+                }
+            });
+
+            // --- Gemini API Image Generation Feature ---
+            generateImageBtn.addEventListener('click', () => {
+                toggleModal(generateImageModal, true);
+            });
+
+            closeImageModal.addEventListener('click', () => {
+                toggleModal(generateImageModal, false);
+            });
+
+            submitImagePrompt.addEventListener('click', async () => {
+                const prompt = imagePromptInput.value.trim();
+                if (!prompt) return;
+
+                generatedImageResultDiv.innerHTML = '<div class="spinner"></div>';
+                generatedImageContainer.innerHTML = '';
+
+                let retryCount = 0;
+                const maxRetries = 3;
+                const baseDelay = 1000; // 1 second
+
+                while (retryCount < maxRetries) {
+                    try {
+                        const payload = { instances: { prompt: prompt }, parameters: { "sampleCount": 1} };
+                        const apiKey = "";
+                        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:predict?key=${apiKey}`;
+
+                        const response = await fetch(apiUrl, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+
+                        if (!response.ok) {
+                             if (response.status === 429) {
+                                const delay = baseDelay * (2 ** retryCount) + Math.random() * 1000;
+                                console.warn(`API rate limit exceeded. Retrying in ${delay / 1000} seconds...`);
+                                await new Promise(res => setTimeout(res, delay));
+                                retryCount++;
+                                continue;
+                             } else {
+                                throw new Error(`API call failed with status: ${response.status}`);
+                            }
+                        }
+
+                        const result = await response.json();
+                        
+                        if (result.predictions && result.predictions.length > 0 && result.predictions[0].bytesBase64Encoded) {
+                            const base64Data = result.predictions[0].bytesBase64Encoded;
+                            const imageUrl = `data:image/png;base64,${base64Data}`;
+                            generatedImageResultDiv.innerHTML = `<img src="${imageUrl}" alt="Generated image of BMW M8" class="rounded-lg w-full h-auto">`;
+                            generatedImageContainer.innerHTML = `<div class="p-4 bg-gray-800 rounded-lg mt-4 shadow-md text-center"><p class="text-lg font-bold mb-2">Your AI-Generated Image</p><img src="${imageUrl}" alt="Generated image of BMW M8" class="rounded-lg shadow-md w-full h-auto"></div>`;
+                        } else {
+                            generatedImageResultDiv.innerHTML = `<p class="text-red-400">Sorry, I couldn't generate an image. Please try again.</p>`;
+                        }
+                        return;
+                    } catch (error) {
+                        console.error('Error calling Gemini API for image:', error);
+                        generatedImageResultDiv.innerHTML = `<p class="text-red-400">An error occurred. Please try again.</p>`;
+                        return;
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
